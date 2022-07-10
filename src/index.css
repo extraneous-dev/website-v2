@@ -25,9 +25,16 @@ body {
 }
 nav {
   background-color: #00FFA3;
-  padding: 10px;
+  color: var(--dark-primary-color);
   box-sizing: border-box;
+  padding: 5px;
+}
+nav li {
+  list-style: none;
+  margin-right: 5px;
 }
 nav ul {
   display: flex;
+  margin: 0;
+  padding: 0;
 }

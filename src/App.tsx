@@ -1,35 +1,28 @@
-import { Component, createResource, Suspense } from 'solid-js';
+import { Component, createResource, Resource, ResourceReturn, Suspense } from 'solid-js';
 
 import NavBar from './Components/NavBar';
 import logo from './logo.svg';
 import styles from './App.module.css';
+import NavBarBlogType from './Components/NavBarBlogType';
+import { Route, Routes } from 'solid-app-router';
+import ViewAllDesignGalleriesPage from './Pages/ViewAllDesignGalleries';
+import ViewDesignGalleryPage from './Pages/ViewDesignGallery';
+import ViewAllPostsPage from './Pages/ViewAllPosts';
+import HomePage from './Pages/HomePage';
 
-type Post = {
-  name: string
-}
-
-const fetchContents = async () => {
-  const req = await fetch('/api/design-galleries/62ca627ba4a53ca7cbfda15d');
-  const res = await req.json();
-  
-  return res;
-}
 const App: Component = () => {
-  const [post] = createResource(1, fetchContents);
   return (
     <>
-    <NavBar />
-    <nav>
-        <ul>
-          <li>Projects</li>
-          <li>Design Concepts</li>
-        </ul>
-      </nav>
-      <h1>Projects</h1>
-      {!post().loading && <>
-        <h1>{JSON.stringify(post().title)}</h1>
-      
-      </>}
+      <NavBar />
+      <NavBarBlogType />
+      <Routes>
+      <Route path='/' component={HomePage} />
+      <Route path='/design-gallery/:id' component={ViewDesignGalleryPage} />
+
+      <Route path='/design-galleries' component={ViewAllDesignGalleriesPage} />
+      <Route path='/projects' component={ViewAllPostsPage} />
+      </Routes>
+
     </>
   );
 };

@@ -1,10 +1,11 @@
+import { Link } from "solid-app-router";
 import { Component } from "solid-js";
 
 const NavBar: Component = () => {
     return(
         <nav>
             <ul>
-                <li>AAAA</li>
+                <li><Link href="/">Home</Link></li>
             </ul>
         </nav>
     )
