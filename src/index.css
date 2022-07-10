@@ -1,0 +1,33 @@
+/* reset margins */
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  font-family: 'Red Hat Display';
+}
+
+
+/* declare spacing, color, etc variables */
+:root {
+  --primary-color: #000D84;
+  --dark-primary-color: #000638;
+  --secondary-color: #00FFA3;
+  --text-color: #FFF;
+  --main-padding: 35px;
+  font-family: 'Red Hat Text', Arial, Helvetica, sans-serif;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+nav {
+  background-color: #00FFA3;
+  padding: 10px;
+  box-sizing: border-box;
+}
+nav ul {
+  display: flex;
+}
